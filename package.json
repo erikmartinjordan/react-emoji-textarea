@@ -1,7 +1,7 @@
 {
   "name": "react-emoji-textarea",
   "version": "1.0.1",
-  "description": "",
+  "description": "React Emoji Textarea",
   "main": "./build/index.js",
   "dependencies": {
     "react": "^16.3.0",
