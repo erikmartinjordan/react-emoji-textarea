@@ -1,0 +1,43 @@
+.Emoji-Textarea *{
+    box-sizing: border-box;
+}
+.Emoji-Textarea{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 500px;
+}
+.Emoji-Textarea textarea{
+    background: lightgray;
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    font-size: medium;
+    height: 300px;
+    outline: none;
+    padding: 20px;
+    resize: none;
+    width: 100%;
+}
+.Emoji-Textarea button.Emoji-Submit{
+    background: #2A86E1;
+    border: none;
+    color: white;
+    font-size: medium;
+}
+.Emoji-Textarea .Emoji{
+    background: lightgray;
+    border-radius: 0px 0px 5px 5px;
+    padding: 20px;
+    text-align: right;
+    width: 100%;
+}
+.Emoji-Textarea .Emoji svg{
+    cursor: pointer;
+}
+.Emoji-Textarea .Emoji .Emoji-Grid{
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+}
