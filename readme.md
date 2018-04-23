@@ -16,7 +16,7 @@ npm i react-emoji-textarea --save
 
 ### How to use
 
-```react
+```javascript
 import React, { Component } from 'react';
 import EmojiTextarea from 'react-emoji-textarea';
 
