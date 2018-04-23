@@ -12,4 +12,4 @@ npm i react-emoji-textarea --save
 
 ### Example
 
-![Alt Text](https://media.giphy.com/media/14SBEilKdO2akYh8Cq/giphy.gif)
+![Alt Text](https://media.giphy.com/media/l7fCg0pPiAPTrH3GIf/giphy.gif)
