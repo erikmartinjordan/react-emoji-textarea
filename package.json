@@ -1,8 +1,16 @@
 {
   "name": "react-emoji-textarea",
-  "version": "1.0.6",
+  "version": "1.0.61",
   "description": "React Emoji Textarea",
   "main": "./build/index.js",
+  "author": { 
+    "name" : "Erik Martín Jordán",
+    "url" : "https://erikmartinjordan.com/"
+  },
+  "repository" : {
+  { "type" : "git",
+    "url" : "https://github.com/erikmartinjordan/react-emoji-textarea"
+  },
   "dependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
@@ -24,7 +32,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "keywords": [],
+  "keywords": ["React", "Textarea", "Emoji"],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
