@@ -16,16 +16,24 @@ class EmojiTextarea extends Component {
   handleText = (e) => {
      
       let text = e.target.value;
-      let arr = text.split(" ");
-      let last__word = arr[arr.length - 1].toLowerCase();
-      let emojis__texting = Emojis.filter( emoji => ( emoji.tags_ES.indexOf(last__word) !== -1 || emoji.tags_EN.indexOf(last__word) !== -1 ));
-      let emojis = emojis__texting.map( (value, key) => <span key = {key} id = {value.symbol} onClick = {this.handleEmoji}>{value.symbol}</span> );  
+            
+      if(text.charAt(text.length - 1) === ' '){
+          
+          let arr = text.split(" ");
+          let last__word = arr[arr.length - 2].toLowerCase();         
+          let emojis__texting = Emojis.filter( emoji => ( emoji.tags_ES.indexOf(last__word) !== -1 || emoji.tags_EN.indexOf(last__word) !== -1 ));
+          let emojis = emojis__texting.map( (value, key) => <span key = {key} id = {value.symbol} onClick = {this.handleEmoji}>{value.symbol}</span> );                                                                 
+          this.setState({ 
+            emojis: emojis
+          }); 
+          
+      }
       
-      this.setState({ 
-          emojis: emojis,
-          comment: text 
-      }); 
-      this.props.handleChange(text);      
+      this.setState({
+          comment: text
+      });
+      
+      this.props.handleChange(text);        
   }
   handleEmoji = (e) => {
       
