@@ -1,64 +1,61 @@
-import React, { Component } from 'react';
-import Smiley from './icon-emotion-happy';
-import Emojis from './Emojis';
+import React, { useState, useEffect } from 'react';
+import Smiley                         from './icon-emotion-happy';
+import Emojis                         from './Emojis';
 import './EmojiTextarea.css';
 
-class EmojiTextarea extends Component {
+const EmojiTextarea = ({setText, setSubmit}) => {
     
-  constructor(){
-      super();
-      this.state = {
-          comment: "",
-          emojis: "",
-          showEmojis: true
-      }
-  }
-  handleText = (e) => {
-     
-      let text = e.target.value;
+    const [comment, setComment]       = useState('');
+    const [emojis, setEmojis]         = useState([]);
+    const [showEmojis, setShowEmojis] = useState(true);
+
+    const handleText = (e) => {
+        
+        let text     = e.target.value;
+        let lastChar = text[text.length - 1];
+        
+        if(lastChar === ' '){
             
-      if(text.charAt(text.length - 1) === ' '){
-          
-          let arr = text.split(" ");
-          let last__word = arr[arr.length - 2].toLowerCase();         
-          let emojis__texting = Emojis.filter( emoji => ( emoji.tags_ES.indexOf(last__word) !== -1 || emoji.tags_EN.indexOf(last__word) !== -1 ));
-          let emojis = emojis__texting.map( (value, key) => <span key = {key} id = {value.symbol} onClick = {this.handleEmoji}>{value.symbol}</span> );                                                                 
-          this.setState({ 
-            emojis: emojis
-          }); 
-          
-      }
-      
-      this.setState({
-          comment: text
-      });
-      
-      this.props.handleChange(text);        
-  }
-  handleEmoji = (e) => {
-      
-      let text = this.state.comment + e.target.id;
-      this.setState({ comment: text });
-      this.props.handleChange(text);
-      
-  }
-  showEmoji = ()  => this.setState({ showEmojis: !this.state.showEmojis });
+            let array    = text.split(' ');
+            let lastWord = array[array.length - 2].toLowerCase();         
+            let emojis   = Emojis.filter(emoji => emoji.tags_ES.indexOf(lastWord) !== -1 || emoji.tags_EN.indexOf(lastWord) !== -1).slice(0, 50);  
+            
+            setEmojis(emojis);
+            
+        }
+        
+        setComment(text);
+        setText(text);  
+        
+    }
+  
+    const handleEmoji = (emoji) => {
+        
+        let text  = comment + emoji;
+        
+        setComment(text);
+        setText(text);  
+        
+    }
     
-  render() {                      
-       
     return (
-      <div className="Emoji-Textarea">
-            <textarea onChange = {this.handleText} value = {this.state.comment}></textarea>
-            <button className="Emoji-Submit" onClick = {this.props.handleSubmit}>Submit</button>
-            <div className = "Emoji">
-                {this.state.showEmojis ? <div className = "Emoji-Grid"> {this.state.emojis} </div> : null}
-                <div onClick = {this.showEmoji}>
+        <div className = 'Emoji-Textarea'>
+            <textarea onChange = {handleText} value = {comment}></textarea>
+            <button className = 'Emoji-Submit' onClick = {() => setSubmit(true)}>Submit</button>
+            <div className = 'Emoji'>
+                { showEmojis 
+                ? <div className = 'Emoji-Grid'> 
+                    {emojis.map((value, key) => <span key = {key} onClick = {() => handleEmoji(value.symbol)}>{value.symbol}</span>)} 
+                  </div> 
+                : null
+                }
+                <div className = {showEmojis ? 'Emoji-On' : 'Emoji-Off'} onClick = {() => setShowEmojis(!showEmojis)}>
                     <Smiley/>
                 </div>
             </div>
-      </div>
+        </div>
     );
-  }
+    
 }
 
 export default EmojiTextarea;
