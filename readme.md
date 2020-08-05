@@ -1,49 +1,50 @@
-# React Emoji Textarea
+# react-emoji-textarea
+
+![react-emoji-textarea version](https://img.shields.io/npm/v/react-emoji-textarea)
+![react-emoji-textarea license](https://img.shields.io/npm/l/react-emoji-textarea)
 
 Textarea with emoji prediction/selection.
 
 ### Installation
 
-What things you need to install the software and how to install them
-
 ```
-npm i react-emoji-textarea --save
+npm i --save react-emoji-textarea
 ```
 
 ### Example
 
-![Alt Text](https://media.giphy.com/media/l7fCg0pPiAPTrH3GIf/giphy.gif)
+![react-emoji-textarea](https://media0.giphy.com/media/gLWVAGwIBpfg4sN99Y/giphy.gif)
 
 ### How to use
 
 ```javascript
-import React, { Component } from 'react';
-import EmojiTextarea from 'react-emoji-textarea';
+import React, { useEffect, useState } from 'react';
+import EmojiTextarea                  from 'react-emoji-textarea';
+import './App.css';
 
-class App extends Component {
-  constructor(){
-      super();
-      this.state = {
-          submitted: false,
-          text: ""
-      }
-  }
-  
-  handleChange = (text) => this.setState({ text: text});
-  handleSubmit = ()     => this.setState({ submitted: true});
+function App() {
     
-  render() {   
-            
+    const [submit, setSubmit] = useState(false);
+    const [text,   setText]   = useState('');
+
     return (
-      <div className = "App">
+        <div className = 'App'>
             <EmojiTextarea
-                handleChange = {this.handleChange}
-                handleSubmit = {this.handleSubmit}
+                setText   = {setText}
+                setSubmit = {setSubmit}
             />
-      </div>
+        </div>
     );
-  }
+    
 }
 
 export default App;
 ```
+
+## Author
+
+[Erik Martín](https://erikmartinjordan.com)
+
+## License
+
+This component is open source and available under the MIT License.
