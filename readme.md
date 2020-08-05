@@ -20,7 +20,6 @@ npm i --save react-emoji-textarea
 ```javascript
 import React, { useEffect, useState } from 'react';
 import EmojiTextarea                  from 'react-emoji-textarea';
-import './App.css';
 
 function App() {
     
