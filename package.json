@@ -1,7 +1,7 @@
 {
   "name": "react-emoji-textarea",
-  "version": "2.0.0",
-  "description": "React Emoji Textarea",
+  "version": "2.0.1",
+  "description": "📝 React component displaying emoji automatically.",
   "main": "./build/index.js",
   "author": "",
   "repository": {
