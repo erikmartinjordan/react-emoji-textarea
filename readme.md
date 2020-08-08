@@ -5,17 +5,17 @@
 
 Textarea with emoji prediction/selection.
 
-### Installation
+## Installation
 
 ```
 npm i --save react-emoji-textarea
 ```
 
-### Example
+## Example
 
 ![react-emoji-textarea](https://media0.giphy.com/media/gLWVAGwIBpfg4sN99Y/giphy.gif)
 
-### How to use
+## How to use
 
 ```javascript
 import React, { useEffect, useState } from 'react';
